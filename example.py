@@ -23,25 +23,25 @@ def send_sysex(sysex):
 
 class PadKontrolPrint(pk.PadKontrolInput):
     def on_pad_down(self, pad, velocity):
-        print ('pad #%d down, velocity %d/127') % (pad, velocity)
+        print (('pad #%d down, velocity %d/127') % (pad, velocity))
 
     def on_pad_up(self, pad):
-        print ('pad #%d up') % pad
+        print (('pad #%d up') % pad)
 
     def on_button_down(self, button):
         if button == pk.BUTTON_FLAM:
             print ('flam button down')
         else:
-            print ('button #%d down') % button
+            print (('button #%d down') % button)
 
     def on_button_up(self, button):
         if button == pk.BUTTON_MESSAGE:
             print ('message button up')
         else:
-            print ('button #%d up') % button
+            print (('button #%d up') % button)
 
     def on_knob(self, knob, value):
-        print ('knob #%d value = %d') % (knob, value)
+        print (('knob #%d value = %d') % (knob, value))
 
     def on_rotary_left(self):
         print ('rotary turned left')
@@ -50,7 +50,7 @@ class PadKontrolPrint(pk.PadKontrolInput):
         print ('rotary turned right')
 
     def on_x_y(self, x, y):
-        print ('x/y pad (x = %d, y = %d)') % (x, y)
+        print (('x/y pad (x = %d, y = %d)') % (x, y))
 
 
 send_sysex(pk.SYSEX_NATIVE_MODE_OFF)
@@ -78,7 +78,7 @@ send_sysex(pk.light_flash(pk.BUTTON_PROG_CHANGE, 0.5))
 
 input('Press enter to see pad #4 blink.')
 
-send_sysex(pk.light(4, pk.LIGHT_STATE_BLINK))
+send_sysex(pk.light(3, pk.LIGHT_STATE_BLINK))
 
 input('Press enter to light up the KNOB 1 ASSIGN button.')
 
@@ -86,7 +86,7 @@ send_sysex(pk.light(pk.BUTTON_KNOB_1_ASSIGN, True))
 
 input('Press enter to turn off pad #4 and the KNOB 1 ASSIGN lights.')
 
-send_sysex(pk.light(4, False))
+send_sysex(pk.light(3, False))
 send_sysex(pk.light(pk.BUTTON_KNOB_1_ASSIGN, pk.LIGHT_STATE_OFF))
 
 input('Press enter to turn on multiple lights with one message.')
